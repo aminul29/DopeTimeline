@@ -275,12 +275,12 @@ class DopeTimeline_Widget extends \Elementor\Widget_Base
     protected function content_template()
     {
         ?>
-        <# if ( settings.timeline_items.length ) { #>
+        <# if ( settings.timeline_items && settings.timeline_items.length ) { #>
             <div class="timeline-container">
                 <# _.each( settings.timeline_items, function( item ) { #>
                     <div class="timeline-item visible">
                         <div class="timeline-logo">
-                            <# if ( item.logo.url ) { #>
+                            <# if ( item.logo && item.logo.url ) { #>
                                 <img src="{{{ item.logo.url }}}" alt="{{{ item.organization }}}">
                             <# } #>
                         </div>
