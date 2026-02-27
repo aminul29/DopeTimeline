@@ -1,0 +1,10 @@
+{
+  "version": 1,
+  "skills": {
+    "elementor-development": {
+      "source": "peixotorms/odinlayer-skills",
+      "sourceType": "github",
+      "computedHash": "5b37255f737bf39fe066baef7c99b984fb9bca9ce049fb62859ffa39dc95ee63"
+    }
+  }
+}

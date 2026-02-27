@@ -1,0 +1,206 @@
+:root {
+  --primary-color: #0f52ba;
+  --text-title: #111827;
+  --text-sub: #4b5563;
+  --text-desc: #3e4f58;
+  --line-color: #e9e9e9;
+  --bg-white: #ffffff;
+  --dot-border: #ffffff;
+  --font-family: "Poppins", sans-serif;
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  background: linear-gradient(135deg, #f8fafc 0%, #eef2f7 100%);
+  font-family: var(--font-family);
+  color: var(--text-desc);
+  line-height: 1.6;
+  padding: 80px 20px;
+  min-height: 100vh;
+}
+
+.timeline-container {
+  max-width: 1000px;
+  margin: 40px auto;
+  position: relative;
+  padding: 20px 0;
+}
+
+/* Ensure Elementor handles our margin */
+.elementor-widget-dope_timeline .timeline-container {
+  margin: 0 auto;
+}
+
+/* Vertical Line */
+.timeline-container::before {
+  content: "";
+  position: absolute;
+  left: 200px; /* Adjust according to logo column width */
+  top: 0;
+  width: 2px;
+  height: 100%;
+  background-color: var(--line-color);
+}
+
+.timeline-item {
+  display: flex;
+  align-items: flex-start;
+  margin-bottom: 60px;
+  position: relative;
+  opacity: 0;
+  transform: translateY(20px);
+  transition: all 0.6s cubic-bezier(0.23, 1, 0.32, 1);
+}
+
+.timeline-item.visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+/* Left Column: Logos */
+.timeline-logo {
+  width: 220px;
+  flex-shrink: 0;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding-right: 50px;
+  position: relative;
+  z-index: 2;
+}
+
+.timeline-logo img {
+  max-width: 100%;
+  max-height: 90px;
+  object-fit: contain;
+  filter: grayscale(1) opacity(0.7);
+  transition: all 0.4s ease;
+  transform-origin: center;
+}
+
+.timeline-item:hover .timeline-logo img {
+  filter: grayscale(0) opacity(1);
+  transform: scale(1.05);
+}
+
+/* Middle Column: Dots */
+.timeline-dot {
+  position: absolute;
+  left: 188px; /* Centered on the line */
+  width: 26px;
+  height: 26px;
+  background: linear-gradient(135deg, var(--primary-color) 0%, #3b82f6 100%);
+  border: 4px solid var(--dot-border);
+  border-radius: 50%;
+  z-index: 10;
+  box-shadow:
+    0 10px 15px -3px rgba(15, 82, 186, 0.3),
+    0 4px 6px -2px rgba(15, 82, 186, 0.1);
+  transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+}
+
+.timeline-item:hover .timeline-dot {
+  transform: scale(1.3);
+  box-shadow:
+    0 20px 25px -5px rgba(15, 82, 186, 0.4),
+    0 10px 10px -5px rgba(15, 82, 186, 0.2);
+}
+
+/* Right Column: Content */
+.timeline-content {
+  flex-grow: 1;
+  padding-left: 60px;
+  text-align: justify;
+}
+
+.timeline-header {
+  margin-bottom: 12px;
+}
+
+.timeline-title {
+  font-size: 20px;
+  font-weight: 600;
+  color: var(--text-title);
+  display: inline;
+}
+
+.timeline-org {
+  font-size: 20px;
+  font-weight: 600;
+  color: var(--primary-color);
+  display: inline;
+}
+
+.timeline-date {
+  font-size: 18px;
+  font-style: italic;
+  color: var(--text-sub);
+  margin-left: 8px;
+  white-space: nowrap;
+}
+
+.timeline-description ul {
+  list-style-type: none !important;
+  margin-top: 15px;
+  padding-left: 0;
+}
+
+.timeline-description li {
+  position: relative;
+  padding-left: 24px;
+  margin-bottom: 12px;
+  font-size: 16px;
+  color: var(--text-desc);
+  list-style: none !important;
+}
+
+.timeline-description li::before {
+  content: "•";
+  position: absolute;
+  left: 0;
+  color: var(--text-sub);
+}
+
+/* Responsive adjustments */
+@media (max-width: 768px) {
+  .timeline-container::before {
+    left: 30px;
+  }
+
+  .timeline-item {
+    flex-direction: column;
+    padding-left: 60px;
+  }
+
+  .timeline-logo {
+    width: 100%;
+    justify-content: flex-start;
+    padding-right: 0;
+    margin-bottom: 20px;
+  }
+
+  .timeline-dot {
+    left: 19px;
+    top: 0;
+  }
+
+  .timeline-content {
+    padding-left: 0;
+  }
+
+  .timeline-title,
+  .timeline-org {
+    display: block;
+  }
+
+  .timeline-date {
+    display: block;
+    margin-left: 0;
+    margin-top: 5px;
+  }
+}
