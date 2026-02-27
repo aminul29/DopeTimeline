@@ -20,7 +20,6 @@ body {
   font-family: var(--font-family);
   color: var(--text-desc);
   line-height: 1.6;
-  padding: 80px 20px;
   min-height: 100vh;
 }
 
