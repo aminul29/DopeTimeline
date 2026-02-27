@@ -1,5 +1,8 @@
-document.addEventListener("DOMContentLoaded", () => {
-  const timelineItems = document.querySelectorAll(".timeline-item");
+const dopeTimelineInit = ($scope) => {
+  const container = $scope ? $scope[0] : document;
+  const timelineItems = container.querySelectorAll(".timeline-item");
+
+  if (!timelineItems.length) return;
 
   const observerOptions = {
     threshold: 0.2,
@@ -19,4 +22,17 @@ document.addEventListener("DOMContentLoaded", () => {
   timelineItems.forEach((item) => {
     observer.observe(item);
   });
+};
+
+document.addEventListener("DOMContentLoaded", () => {
+  dopeTimelineInit();
+});
+
+// Run when Elementor loads the widget in the editor
+window.addEventListener('elementor/frontend/init', () => {
+  if (typeof elementorFrontend !== 'undefined') {
+    elementorFrontend.hooks.addAction('frontend/element_ready/dope_timeline.default', ($scope) => {
+      dopeTimelineInit($scope);
+    });
+  }
 });
