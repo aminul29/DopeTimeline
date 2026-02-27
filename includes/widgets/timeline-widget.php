@@ -183,6 +183,51 @@ class DopeTimeline_Widget extends \Elementor\Widget_Base
             ]
         );
 
+        $this->add_control(
+            'heading_typography',
+            [
+                'label' => esc_html__('Typography', 'dope-timeline'),
+                'type' => \Elementor\Controls_Manager::HEADING,
+                'separator' => 'before',
+            ]
+        );
+
+        $this->add_group_control(
+            \Elementor\Group_Control_Typography::get_type(),
+            [
+                'name' => 'title_typography',
+                'label' => esc_html__('Title Typography', 'dope-timeline'),
+                'selector' => '{{WRAPPER}} .timeline-title',
+            ]
+        );
+
+        $this->add_group_control(
+            \Elementor\Group_Control_Typography::get_type(),
+            [
+                'name' => 'org_typography',
+                'label' => esc_html__('Organization Typography', 'dope-timeline'),
+                'selector' => '{{WRAPPER}} .timeline-org',
+            ]
+        );
+
+        $this->add_group_control(
+            \Elementor\Group_Control_Typography::get_type(),
+            [
+                'name' => 'date_typography',
+                'label' => esc_html__('Date Typography', 'dope-timeline'),
+                'selector' => '{{WRAPPER}} .timeline-date',
+            ]
+        );
+
+        $this->add_group_control(
+            \Elementor\Group_Control_Typography::get_type(),
+            [
+                'name' => 'desc_typography',
+                'label' => esc_html__('Description Typography', 'dope-timeline'),
+                'selector' => '{{WRAPPER}} .timeline-description, {{WRAPPER}} .timeline-description li',
+            ]
+        );
+
         $this->end_controls_section();
     }
 
