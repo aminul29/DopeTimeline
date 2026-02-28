@@ -9,7 +9,7 @@
  *
  * @category Plugin
  * @package  DopeTimeline
- * @author   Antigravity <antigravity@example.com>
+ * @author   Aminul Islam
  * @license  https://opensource.org/licenses/GPL-2.0 GPL-2.0+
  * @link     https://example.com
  */
