@@ -3,7 +3,7 @@
  * Plugin Name: DopeTimeline for Elementor
  * Description: Premium timeline widget for Elementor based on Figma design.
  * Version: 1.0.0
- * Author: Antigravity
+ * Author: Aminul Islam
  * Text Domain: dope-timeline
  * Requires Plugins: elementor
  *
