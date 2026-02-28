@@ -35,15 +35,21 @@ body {
   margin: 0 auto;
 }
 
-/* Vertical Line */
-.timeline-container::before {
+/* Vertical Line between items */
+.timeline-item::before {
   content: "";
   position: absolute;
   left: 200px; /* Adjust according to logo column width */
-  top: 0;
+  top: 26px; /* Start below the dot */
+  bottom: -60px; /* Extend through the margin gap */
   width: 2px;
-  height: 100%;
   background-color: var(--line-color);
+  z-index: 1;
+}
+
+/* Hide line after the last item */
+.timeline-item:last-child::before {
+  display: none;
 }
 
 .timeline-item {
@@ -167,8 +173,9 @@ body {
 
 /* Responsive adjustments */
 @media (max-width: 768px) {
-  .timeline-container::before {
-    left: 30px;
+  .timeline-item::before {
+    left: 31px;
+    bottom: -60px; /* Also extend in mobile view */
   }
 
   .timeline-item {
