@@ -228,6 +228,47 @@ class DopeTimeline_Widget extends \Elementor\Widget_Base
             ]
         );
 
+        $this->add_control(
+            'heading_spacing',
+            [
+                'label' => esc_html__('Spacing', 'dope-timeline'),
+                'type' => \Elementor\Controls_Manager::HEADING,
+                'separator' => 'before',
+            ]
+        );
+
+        $this->add_responsive_control(
+            'item_gap',
+            [
+                'label' => esc_html__('Item Gap', 'dope-timeline'),
+                'type' => \Elementor\Controls_Manager::SLIDER,
+                'size_units' => ['px'],
+                'range' => [
+                    'px' => [
+                        'min' => 0,
+                        'max' => 200,
+                        'step' => 1,
+                    ],
+                ],
+                'default' => [
+                    'size' => 60,
+                    'unit' => 'px',
+                ],
+                'tablet_default' => [
+                    'size' => 60,
+                    'unit' => 'px',
+                ],
+                'mobile_default' => [
+                    'size' => 60,
+                    'unit' => 'px',
+                ],
+                'selectors' => [
+                    '{{WRAPPER}} .timeline-item:not(:last-child)' => 'margin-bottom: {{SIZE}}{{UNIT}};',
+                    '{{WRAPPER}} .timeline-item::before' => 'bottom: -{{SIZE}}{{UNIT}};',
+                ],
+            ]
+        );
+
         $this->end_controls_section();
     }
 
