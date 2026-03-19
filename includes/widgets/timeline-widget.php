@@ -184,6 +184,34 @@ class DopeTimeline_Widget extends \Elementor\Widget_Base
         );
 
         $this->add_control(
+            'heading_image',
+            [
+                'label' => esc_html__('Image', 'dope-timeline'),
+                'type' => \Elementor\Controls_Manager::HEADING,
+                'separator' => 'before',
+            ]
+        );
+
+        $this->add_control(
+            'logo_grayscale',
+            [
+                'label' => esc_html__('Grayscale By Default', 'dope-timeline'),
+                'type' => \Elementor\Controls_Manager::SWITCHER,
+                'label_on' => esc_html__('On', 'dope-timeline'),
+                'label_off' => esc_html__('Off', 'dope-timeline'),
+                'return_value' => 'yes',
+                'default' => 'yes',
+                'selectors_dictionary' => [
+                    'yes' => 'grayscale(1) opacity(0.7)',
+                    '' => 'grayscale(0) opacity(1)',
+                ],
+                'selectors' => [
+                    '{{WRAPPER}} .timeline-logo img' => 'filter: {{VALUE}};',
+                ],
+            ]
+        );
+
+        $this->add_control(
             'heading_typography',
             [
                 'label' => esc_html__('Typography', 'dope-timeline'),
